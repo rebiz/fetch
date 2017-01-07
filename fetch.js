@@ -1,7 +1,11 @@
 (function(self) {
   'use strict';
   var matches = window.navigator.userAgent.match(/Edge\/14\.([0-9]+)/)
-  if (self.fetch && matches && matches[1] > 14393) {
+  if (matches) {
+    if (self.fetch && matches[1] > 14393) {
+      return
+    }
+  } else if (self.fetch) {
     return
   }
 
